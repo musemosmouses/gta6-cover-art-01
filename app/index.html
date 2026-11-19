@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Cover Studio — GTA 6-style cover maker</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls" aria-label="Cover controls">
+    <h1>VICE COVER STUDIO</h1>
+    <p class="tag">Turn any photo + caption into a GTA 6-style poster cover. Offline — your photos never leave this machine.</p>
+
+    <fieldset>
+      <legend>Layout</legend>
+      <div class="row" id="layouts">
+        <button type="button" data-layout="poster" class="on">Poster</button>
+        <button type="button" data-layout="split">Split</button>
+        <button type="button" data-layout="grid">Grid</button>
+        <button type="button" data-layout="single">Single</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Colour grade</legend>
+      <div class="row" id="grades">
+        <button type="button" data-grade="sunset" class="on"><span class="sw sunset"></span>Sunset</button>
+        <button type="button" data-grade="neon"><span class="sw neon"></span>Neon</button>
+        <button type="button" data-grade="noir"><span class="sw noir"></span>Noir</button>
+        <button type="button" data-grade="gold"><span class="sw gold"></span>Gold</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Lettering</legend>
+      <label>Title <input id="title" type="text" maxlength="24" value="VICE CITY"></label>
+      <label>Subtitle <input id="subtitle" type="text" maxlength="40" value="SUNSET HEIST"></label>
+      <div class="row" id="styles">
+        <button type="button" data-style="block" class="on">Block</button>
+        <button type="button" data-style="outline">Outline</button>
+        <button type="button" data-style="neon">Neon</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Export size</legend>
+      <div class="row" id="sizes">
+        <button type="button" data-size="square" class="on">1080 × 1080</button>
+        <button type="button" data-size="portrait">1080 × 1350</button>
+        <button type="button" data-size="wide">1920 × 1080</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Photos — one per panel</legend>
+      <div id="panels"></div>
+      <p class="hint">Pick a sample or upload your own photo for each panel. Zoom and the sliders crop and position that panel's photo.</p>
+    </fieldset>
+
+    <div class="row export">
+      <button id="export" type="button" class="primary">Export PNG</button>
+      <button id="export-all" type="button">Export all 3 sizes</button>
+    </div>
+    <p id="status" role="status"></p>
+    <p class="fine">Unofficial fan-made tool. Not affiliated with Rockstar Games. No Rockstar logos, artwork or fonts are used.</p>
+  </section>
+  <section class="preview" aria-label="Cover preview">
+    <canvas id="cover" width="1080" height="1080"></canvas>
+    <p id="sizelabel">1080 × 1080 — Square</p>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
